@@ -13,3 +13,18 @@ var reverseWords = function (s) {
   answer.push(revWord.split('').reverse().join(''))
   return answer.join(' ')
 }
+
+// 7 Reverse Integer
+var reverse = function (x) {
+  let reverse = 0
+  const isNeg = x < 0
+  x = Math.abs(x)
+  while (x > 0) {
+    reverse = reverse * 10 + (x % 10)
+    x = Math.floor(x / 10)
+  }
+  if (reverse > 2 ** 31 - 1) {
+    return 0
+  }
+  return isNeg ? -reverse : reverse
+}
