@@ -28,3 +28,24 @@ var reverse = function (x) {
   }
   return isNeg ? -reverse : reverse
 }
+
+// 2496. Maximum Value of a String in an Array
+var maximumValue = function (strs) {
+  let val = 0
+
+  for (const str of strs) {
+    let test_val = 0
+    if (/\d/.test(str) && /^[^A-Za-z]*$/.test(str)) {
+      test_val = parseInt(str)
+      if (test_val > val) {
+        val = test_val
+      }
+    } else {
+      test_val = str.length
+      if (test_val > val) {
+        val = test_val
+      }
+    }
+  }
+  return val
+}
