@@ -49,3 +49,34 @@ var maximumValue = function (strs) {
   }
   return val
 }
+
+// 142. Linked List Cycle II
+
+var detectCycle = function (head) {
+  // Step 1: Use Floyd's algorithm to detect the cycle and find the meeting point
+  let slow = head
+  let fast = head
+
+  while (fast && fast.next) {
+    slow = slow.next
+    fast = fast.next.next
+
+    if (slow === fast) {
+      break
+    }
+  }
+
+  if (!fast || !fast.next) {
+    return null // No cycle
+  }
+
+  // Step 2: Reset one of the pointers to the head and move both pointers at the same rate
+  slow = head
+
+  while (slow !== fast) {
+    slow = slow.next
+    fast = fast.next
+  }
+
+  return slow // This is the starting node of the cycle
+}
