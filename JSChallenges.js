@@ -112,3 +112,26 @@ var plusOne = function (digits) {
   }
   return digits
 }
+// 88. Merge Sorted Array
+var merge = function (nums1, m, nums2, n) {
+  let i = 0
+  let j = 0
+  while (i < m + n) {
+    if (nums2[j] === undefined) {
+      return nums1
+    } else if (nums1[i] === 0 && i >= m + j) {
+      nums1.splice(i, 0, nums2[j])
+      nums1.pop()
+      i++
+      j++
+    } else if (nums1[i] <= nums2[j]) {
+      i++
+    } else {
+      nums1.splice(i, 0, nums2[j])
+      nums1.pop()
+      i++
+      j++
+    }
+  }
+  return nums1
+}
