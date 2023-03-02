@@ -135,3 +135,30 @@ var merge = function (nums1, m, nums2, n) {
   }
   return nums1
 }
+// 28. Find the Index of the First Occurence in a String
+var strStr = function (haystack, needle) {
+  if (needle === '') {
+    return 0
+  }
+  let startIndex = -1
+  let pointer2 = 0
+  if (needle.length > haystack.length) {
+    return startIndex
+  }
+  for (let i = 0; i < haystack.length; i++) {
+    if (haystack[i] === needle[pointer2]) {
+      if (pointer2 === 0) {
+        startIndex = i
+      }
+      pointer2++
+    } else {
+      i -= pointer2
+      pointer2 = 0
+      startIndex = -1
+    }
+    if (pointer2 === needle.length) {
+      return startIndex
+    }
+  }
+  return -1
+}
