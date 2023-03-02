@@ -94,3 +94,21 @@ var detectCycle = function (head) {
 
   return slow // This is the starting node of the cycle
 }
+
+// 66. Plus One
+var plusOne = function (digits) {
+  for (let i = digits.length - 1; i >= 0; i--) {
+    if (i === digits.length - 1) {
+      digits[digits.length - 1] += 1
+    }
+    if (digits[i] > 9) {
+      digits[i] -= 10
+      if (i - 1 < 0) {
+        digits.unshift(1)
+      } else {
+        digits[i - 1] += 1
+      }
+    }
+  }
+  return digits
+}
