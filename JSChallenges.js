@@ -162,3 +162,25 @@ var strStr = function (haystack, needle) {
   }
   return -1
 }
+
+// Weekly Interview Challenge
+var maxArea = function (height) {
+  let maxArea = 0
+  let left = 0,
+    right = height.length - 1
+
+  while (left < right) {
+    const width = right - left
+    const minHeight = Math.min(height[left], height[right])
+    const area = width * minHeight
+    maxArea = Math.max(maxArea, area)
+
+    if (height[left] < height[right]) {
+      left++
+    } else {
+      right--
+    }
+  }
+
+  return maxArea
+}
