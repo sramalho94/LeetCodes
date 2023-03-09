@@ -184,3 +184,19 @@ var maxArea = function (height) {
 
   return maxArea
 }
+// 144. Binary Tree Preorder Traversal
+var preorderTraversal = function (root) {
+  let answer = []
+
+  const helperFunct = (root) => {
+    if (root) {
+      answer.push(root.val)
+
+      helperFunct(root.left)
+
+      helperFunct(root.right)
+    }
+  }
+  helperFunct(root)
+  return answer
+}
