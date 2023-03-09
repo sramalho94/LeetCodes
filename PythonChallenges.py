@@ -20,3 +20,14 @@ def mySqrt(self, x: int) -> int:
             elif num == x:
                 return i
             i += 1
+
+# 145. Binary Tree Postorder Traversal
+def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        answer = []
+        def traverse(root):
+            if root:
+                traverse(root.left)
+                traverse(root.right)
+                answer.append(root.val)
+        traverse(root)
+        return answer
