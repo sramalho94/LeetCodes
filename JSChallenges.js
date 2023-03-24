@@ -200,3 +200,41 @@ var preorderTraversal = function (root) {
   helperFunct(root)
   return answer
 }
+// 17. Letter Combinations of a Phone Number
+var letterCombinations = function (digits) {
+  const hashTable = {
+    2: ['a', 'b', 'c'],
+    3: ['d', 'e', 'f'],
+    4: ['g', 'h', 'i'],
+    5: ['j', 'k', 'l'],
+    6: ['m', 'n', 'o'],
+    7: ['p', 'q', 'r', 's'],
+    8: ['t', 'u', 'v'],
+    9: ['w', 'x', 'y', 'z']
+  }
+
+  let answer = []
+
+  for (let i = 0; i < digits.length; i++) {
+    let digit = digits[i]
+
+    if (i === 0) {
+      let letters = hashTable[digit]
+      for (let j = 0; j < letters.length; j++) {
+        answer.push(letters[j])
+      }
+    } else {
+      let letters = hashTable[digit]
+      const newAnswer = []
+      for (let j = 0; j < letters.length; j++) {
+        for (let letter of answer) {
+          newAnswer.push(letter + letters[j])
+        }
+      }
+
+      answer = newAnswer
+    }
+  }
+
+  return answer
+}
