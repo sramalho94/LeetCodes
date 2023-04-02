@@ -238,3 +238,25 @@ var letterCombinations = function (digits) {
 
   return answer
 }
+
+// 2574. Left and Right Sum Differences
+var leftRigthDifference = function (nums) {
+  const leftSum = [0]
+  const rightSum = [0]
+  const answer = []
+  let lSum = 0
+  let rSum = 0
+  for (let i = 0; i < nums.length - 1; i++) {
+    lSum += nums[i]
+    leftSum.push(lSum)
+  }
+  for (let j = nums.length - 1; j > 0; j--) {
+    rSum += nums[j]
+    rightSum.unshift(rSum)
+  }
+
+  for (let i = 0; i < rightSum.length; i++) {
+    answer.push(Math.abs(leftSum[i] - rightSum[i]))
+  }
+  return answer
+}
