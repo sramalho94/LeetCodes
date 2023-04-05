@@ -273,3 +273,16 @@ var maxSubArray = function (nums) {
 
   return maxSoFar
 }
+
+// 78. Subsets
+var subsets = function (nums) {
+  let answer = [[]]
+  for (let i = 0; i < nums.length; i++) {
+    let currentLength = answer.length
+    for (let j = 0; j < currentLength; j++) {
+      let newSubset = [...answer[j], nums[i]]
+      answer.push(newSubset)
+    }
+  }
+  return answer
+}
