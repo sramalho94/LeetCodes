@@ -286,3 +286,37 @@ var subsets = function (nums) {
   }
   return answer
 }
+
+// 108 Convert Sorted Array to Binary Search Tree
+var sortedArrayToBST = function (nums) {
+  const findMiddleAndRecursion = (array) => {
+    if (array.length === 0) {
+      return null
+    }
+    const middle = Math.floor(array.length / 2)
+    const node = new TreeNode(array[middle], null, null)
+    node.left = findMiddleAndRecursion(array.slice(0, middle))
+    node.right = findMiddleAndRecursion(array.slice(middle + 1, array.length))
+    return node
+  }
+  if (nums.length > 0) {
+    return findMiddleAndRecursion(nums)
+  } else {
+    return nums
+  }
+}
+
+// 121. Best Time to Buy and Sell Stock
+var maxProfit = function (prices) {
+  let minPrice = Number.MAX_VALUE
+  let maxProfit = 0
+
+  for (let price of prices) {
+    if (price < minPrice) {
+      minPrice = price
+    } else {
+      maxProfit = Math.max(maxProfit, price - minPrice)
+    }
+  }
+  return maxProfit
+}
