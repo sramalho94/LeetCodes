@@ -31,3 +31,28 @@ def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
                 answer.append(root.val)
         traverse(root)
         return answer
+
+# 724. Find Pivot Index
+def pivotIndex(self, nums: List[int]) -> int:
+
+        # def helper(array):
+        #     sum = 0
+        #     for num in array:
+        #         sum = sum + num
+        #     return sum
+
+        # for i, element in enumerate(nums):
+        #     leftSlice = nums[0:i]
+        #     rightSlice = nums[i + 1:len(nums)]
+        #     if helper(leftSlice) == helper(rightSlice):
+        #         return i
+        # return -1 
+        prefix_sum = [0]
+        for num in nums:
+            prefix_sum.append(prefix_sum[-1] + num)
+        
+        for i, num in enumerate(nums):
+            if prefix_sum[i] == prefix_sum[-1] - prefix_sum[i+1]:
+                return i
+        
+        return -1
