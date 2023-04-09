@@ -320,3 +320,13 @@ var maxProfit = function (prices) {
   }
   return maxProfit
 }
+
+// 1480. Running Sum of 1d Array
+var runningSum = function (nums) {
+  let holder = 0
+  for (let i = 0; i < nums.length; i++) {
+    holder += nums[i]
+    nums[i] = holder
+  }
+  return nums
+}
