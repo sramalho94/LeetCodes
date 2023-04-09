@@ -330,3 +330,19 @@ var runningSum = function (nums) {
   }
   return nums
 }
+
+// 206. Reverse Linked List
+var reverseList = function (head) {
+  if (head) {
+    let previous = null
+    current = head
+    while (current !== null) {
+      next = current.next
+      current.next = previous
+      previous = current
+      current = next
+    }
+    return previous
+  }
+  return head
+}
