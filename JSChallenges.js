@@ -388,3 +388,28 @@ var isPalindrome = function (x) {
   }
   return palindrome
 }
+// 39 Combination Sum.
+var combinationSum = function (candidates, target) {
+  let result = []
+
+  const backtrack = (combination, sum, start, candidates) => {
+    if (sum === target) {
+      result.push([...combination])
+      return
+    }
+    if (sum > target) {
+      return
+    }
+    for (let i = start; i < candidates.length; i++) {
+      combination.push(candidates[i])
+      sum += candidates[i]
+      start = i
+      backtrack(combination, sum, i, candidates)
+      combination.pop()
+      sum -= candidates[i]
+    }
+  }
+
+  backtrack([], 0, 0, candidates)
+  return result
+}
