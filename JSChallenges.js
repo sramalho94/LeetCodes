@@ -371,3 +371,20 @@ const arithGeo = (nums) => {
 }
 
 console.log(arithGeo([7, 0.7, 0.07, 0.007, 0.0007]))
+
+// 9. Palindrome Number
+var isPalindrome = function (x) {
+  string = x.toString()
+  let start = 0
+  let end = string.length - 1
+  let palindrome = true
+  while (start < end) {
+    if (string[start] !== string[end]) {
+      palindrome = false
+      return palindrome
+    }
+    start++
+    end--
+  }
+  return palindrome
+}
