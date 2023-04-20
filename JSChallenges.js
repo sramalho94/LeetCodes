@@ -413,3 +413,11 @@ var combinationSum = function (candidates, target) {
   backtrack([], 0, 0, candidates)
   return result
 }
+// 136. Single number
+var singleNumber = function (nums) {
+  let xOr = nums[0]
+  for (let i = 1; i < nums.length; i++) {
+    xOr ^= nums[i]
+  }
+  return xOr
+}
