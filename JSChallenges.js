@@ -421,3 +421,22 @@ var singleNumber = function (nums) {
   }
   return xOr
 }
+
+// 387. First Unique Character in a String
+var firstUniqChar = function (s) {
+  let hashTable = {}
+  for (let i = 0; i < s.length; i++) {
+    if (!hashTable[s[i]]) {
+      hashTable[s[i]] = 1
+    } else {
+      hashTable[s[i]] += 1
+    }
+  }
+  for (let i = 0; i < s.length; i++) {
+    if (hashTable[s[i]] === 1) {
+      return i
+    }
+  }
+
+  return -1
+}
