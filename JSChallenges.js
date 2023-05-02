@@ -456,3 +456,17 @@ var map = function (arr, fn) {
   }
   return ans
 }
+
+// 2620. Counter
+var createCounter = function (n) {
+  let i = 0
+  let value = n
+  return function () {
+    if (i === 0) {
+      i += 1
+      return value
+    }
+
+    return (value += 1)
+  }
+}
