@@ -70,3 +70,11 @@ def generate(self, numRows: int) -> List[List[int]]:
                     row.append(arr[i-1][j-1]+arr[i-1][j])
             arr.append(row)
         return arr
+
+# 1920. Build Array from Permutation
+def buildArray(self, nums: List[int]) -> List[int]:
+        ans = []
+        for i in range(len(nums)):
+            newElement = nums[nums[i]]
+            ans.append(newElement)
+        return ans
