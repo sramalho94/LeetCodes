@@ -440,3 +440,10 @@ var firstUniqChar = function (s) {
 
   return -1
 }
+
+// 1920. Build Array from Permutation
+var buildArray = function (nums) {
+  return nums.map((num) => {
+    nums[num]
+  })
+}

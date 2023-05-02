@@ -56,3 +56,17 @@ def pivotIndex(self, nums: List[int]) -> int:
                 return i
         
         return -1
+
+# 118. Pascal's Triangle
+def generate(self, numRows: int) -> List[List[int]]:
+        arr =[]
+
+        for i in range(numRows):
+            row=[]
+            for j in range(0,i+1):
+                if j==0 or j==i:
+                    row.append(1)
+                else:
+                    row.append(arr[i-1][j-1]+arr[i-1][j])
+            arr.append(row)
+        return arr
