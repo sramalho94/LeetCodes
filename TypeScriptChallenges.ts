@@ -22,3 +22,21 @@ function shuffle1(nums: number[], n: number): number[] {
   }
   return answer
 }
+
+// 1512. Number of Good Pairs
+function numIdenticalPairs(nums: number[]): number {
+  if (nums.length <= 1) {
+    return nums.length
+  }
+  let answer: number = 0
+  let hashTable: object = {}
+  for (let i: number = 0; i < nums.length; i++) {
+    if (!hashTable[nums[i]]) {
+      hashTable[nums[i]] = 1
+    } else {
+      answer += hashTable[nums[i]]
+      hashTable[nums[i]]++
+    }
+  }
+  return answer
+}
