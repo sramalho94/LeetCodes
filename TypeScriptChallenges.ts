@@ -49,3 +49,15 @@ function smallestEvenMultiple(n: number): number {
     return n * 2
   }
 }
+
+// 1281. Subtract the Product and Sum of Digits of an Integer
+function subtractProductAndSum(n: number): number {
+  let holder: string = n.toString()
+  let sum: number = 0
+  let product: number = 1
+  for (let i: number = 0; i < holder.length; i++) {
+    sum += parseInt(holder[i])
+    product *= parseInt(holder[i])
+  }
+  return product - sum
+}
