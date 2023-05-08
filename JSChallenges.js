@@ -470,3 +470,8 @@ var createCounter = function (n) {
     return (value += 1)
   }
 }
+
+// 28. Find the Index of the First Occurrence in a String - Solution with indexOf
+var strStr = function (haystack, needle) {
+  return haystack.indexOf(needle)
+}
