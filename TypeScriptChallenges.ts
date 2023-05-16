@@ -88,3 +88,20 @@ function isSameAfterReversals(num: number): boolean {
 
   return true
 }
+
+// 1829. Maximum XOR for Each Query
+function getMaximumXor(nums: number[], maximumBit: number): number[] {
+  let k: number = 2 ** maximumBit - 1
+  let xOr: number = 0
+  for (let num of nums) {
+    xOr ^= num
+  }
+  let answer: number[] = []
+
+  for (let i = nums.length - 1; i >= 0; i--) {
+    answer.push(xOr ^ k)
+    xOr ^= nums[i]
+  }
+
+  return answer
+}
