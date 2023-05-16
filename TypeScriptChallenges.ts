@@ -79,3 +79,12 @@ function generateTheString(n: number): string {
   }
   return answer
 }
+// 2119. A Number After a Double Reversal
+function isSameAfterReversals(num: number): boolean {
+  let holder: string = num.toString()
+  if (holder[holder.length - 1] === '0' && holder.length > 1) {
+    return false
+  }
+
+  return true
+}
