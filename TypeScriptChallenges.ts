@@ -61,3 +61,21 @@ function subtractProductAndSum(n: number): number {
   }
   return product - sum
 }
+// 1374. Generate a String With Characters That Have Odd Counts
+function generateTheString(n: number): string {
+  let answer: string = ''
+  if (n % 2 !== 0) {
+    for (let i: number = 0; i < n; i++) {
+      answer += 'o'
+    }
+  } else {
+    for (let i: number = 0; i < n; i++) {
+      if (i === n - 1) {
+        answer += 'h'
+      } else {
+        answer += 'o'
+      }
+    }
+  }
+  return answer
+}
