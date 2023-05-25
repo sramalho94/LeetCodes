@@ -126,7 +126,17 @@ function lengthOfLastWord(s: string): number {
         answer++
         i--
       }
-      return answer
     }
   }
+  return answer
+}
+// 122. Best Time to Buy and Sell Stock II
+function maxProfit2(prices: number[]): number {
+  let profit: number = 0
+  for (let i: number = 0; i < prices.length - 1; i++) {
+    if (prices[i] < prices[i + 1]) {
+      profit += prices[i + 1] - prices[i]
+    }
+  }
+  return profit
 }
