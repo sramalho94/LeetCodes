@@ -105,3 +105,15 @@ function getMaximumXor(nums: number[], maximumBit: number): number[] {
 
   return answer
 }
+
+// 198. House Robber
+function rob(nums: number[]): number {
+  let prevHouse: number = 0
+  let currentHouse: number = 0
+  for (let i: number = 0; i < nums.length; i++) {
+    let temp = currentHouse
+    currentHouse = Math.max(prevHouse + nums[i], currentHouse)
+    prevHouse = temp
+  }
+  return currentHouse
+}
