@@ -117,3 +117,16 @@ function rob(nums: number[]): number {
   }
   return currentHouse
 }
+// 58. Length of Last Word
+function lengthOfLastWord(s: string): number {
+  let answer: number = 0
+  for (let i: number = s.length - 1; i >= 0; i--) {
+    if (s[i] !== ' ') {
+      while (s[i] !== ' ' && i >= 0) {
+        answer++
+        i--
+      }
+      return answer
+    }
+  }
+}
