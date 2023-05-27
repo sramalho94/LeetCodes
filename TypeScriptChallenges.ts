@@ -140,3 +140,7 @@ function maxProfit2(prices: number[]): number {
   }
   return profit
 }
+// 1431. Kids With the Greatest Number of Candies
+function kidsWithCandies(candies: number[], extraCandies: number): boolean[] {
+  return candies.map((candy) => candy + extraCandies >= Math.max(...candies))
+}
