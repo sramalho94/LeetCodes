@@ -193,3 +193,41 @@ function reverseVowels(s: string): string {
   }
   return test.join('')
 }
+// 151. Reverse Words in a String
+function reverseWords2(s: string): string {
+  let answer: string = ''
+  let holder: string[] = s.trim().split(/\s+/)
+  let start: number = 0
+  let end: number = holder.length - 1
+  while (start < end) {
+    ;[holder[start], holder[end]] = [holder[end], holder[start]]
+    start++
+    end--
+  }
+  return holder.join(' ')
+}
+
+// 283. Move Zeroes
+function moveZeroes(nums: number[]): void {
+  let lastNonZero: any = 0
+  for (let i: number = 0; i < nums.length; i++) {
+    if (nums[i] !== 0) {
+      nums[lastNonZero++] = nums[i]
+    }
+  }
+  for (let i = lastNonZero; i < nums.length; i++) {
+    nums[i] = 0
+  }
+}
+// 1071. Greatest Common Divisor of Strings
+function gcdOfStrings(str1: string, str2: string) {
+  if (str1 + str2 !== str2 + str1) {
+    return ''
+  } else if (str1 === str2) {
+    return str1
+  } else if (str1.length > str2.length) {
+    return gcdOfStrings(str1.slice(str2.length), str2)
+  } else if (str2.length > str1.length) {
+    return gcdOfStrings(str2.slice(str1.length), str1)
+  }
+}
