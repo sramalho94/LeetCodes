@@ -170,3 +170,26 @@ function canPlaceFlowers(flowerbed: number[], n: number): boolean {
   }
   return flowersLeft === 0
 }
+// 345. Reverse Vowels of a String
+function reverseVowels(s: string): string {
+  let start: number = 0
+  let end: number = s.length - 1
+  const test: string[] = s.split('')
+  let vowels: string[] = ['a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U']
+
+  while (start < end) {
+    if (vowels.includes(test[start]) && vowels.includes(test[end])) {
+      ;[test[start], test[end]] = [test[end], test[start]]
+      start++
+      end--
+    } else if (vowels.includes(test[start]) && !vowels.includes(test[end])) {
+      end--
+    } else if (!vowels.includes(test[start]) && vowels.includes(test[end])) {
+      start++
+    } else if (!vowels.includes(test[start]) && !vowels.includes(test[end])) {
+      start++
+      end--
+    }
+  }
+  return test.join('')
+}
