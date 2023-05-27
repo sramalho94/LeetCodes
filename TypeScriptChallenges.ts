@@ -144,3 +144,29 @@ function maxProfit2(prices: number[]): number {
 function kidsWithCandies(candies: number[], extraCandies: number): boolean[] {
   return candies.map((candy) => candy + extraCandies >= Math.max(...candies))
 }
+// 605. Can Place Flowers
+function canPlaceFlowers(flowerbed: number[], n: number): boolean {
+  let flowersLeft: number = n
+  for (let i: number = 0; i < flowerbed.length; i++) {
+    if (i < 1) {
+      if (flowerbed[i] !== 1 && flowerbed[i + 1] !== 1 && flowersLeft > 0) {
+        flowerbed[i] = 1
+        flowersLeft--
+      }
+    } else if (i === flowerbed.length - 1) {
+      if (flowerbed[i] !== 1 && flowerbed[i - 1] !== 1 && flowersLeft > 0) {
+        flowerbed[i] = 1
+        flowersLeft--
+      }
+    } else if (
+      flowerbed[i] !== 1 &&
+      flowerbed[i - 1] !== 1 &&
+      flowerbed[i + 1] !== 1 &&
+      flowersLeft > 0
+    ) {
+      flowerbed[i] = 1
+      flowersLeft--
+    }
+  }
+  return flowersLeft === 0
+}
