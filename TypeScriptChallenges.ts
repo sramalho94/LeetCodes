@@ -264,3 +264,21 @@ function productExceptSelf(nums: number[]): number[] {
 
   return answer
 }
+
+// 334. Increasing Triplet Subsequence
+function increasingTriplet(nums: number[]): boolean {
+  let first: number = Number.MAX_VALUE
+  let second: number = Number.MAX_VALUE
+
+  for (let i: number = 0; i < nums.length; i++) {
+    if (nums[i] < first) {
+      first = nums[i]
+    } else if (nums[i] > first && nums[i] < second) {
+      second = nums[i]
+    } else if (nums[i] > second) {
+      return true
+    }
+  }
+
+  return false
+}
