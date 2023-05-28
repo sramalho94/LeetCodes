@@ -299,3 +299,22 @@ function findMaxAverage(nums: number[], k: number): number {
 
   return maxSum / k
 }
+// 1207. Unique Number of Occurrences
+function uniqueOccurrences(arr: number[]): boolean {
+  let hashTable = {}
+  let test: Set<number> = new Set()
+  let count: number = 0
+
+  for (let i: number = 0; i < arr.length; i++) {
+    if (!hashTable[arr[i]]) {
+      hashTable[arr[i]] = 1
+      count++
+    } else {
+      hashTable[arr[i]]++
+    }
+  }
+  for (let key in hashTable) {
+    test.add(hashTable[key])
+  }
+  return test.size === count
+}
