@@ -231,3 +231,13 @@ function gcdOfStrings(str1: string, str2: string) {
     return gcdOfStrings(str2.slice(str1.length), str1)
   }
 }
+// 392. Is Subsequence
+function isSubsequence(s: string, t: string): boolean {
+  let pointer: number = 0
+  for (let i = 0; i < t.length; i++) {
+    if (s[pointer] === t[i]) {
+      pointer++
+    }
+  }
+  return pointer === s.length
+}
