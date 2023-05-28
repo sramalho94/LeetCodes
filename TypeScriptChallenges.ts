@@ -318,3 +318,25 @@ function uniqueOccurrences(arr: number[]): boolean {
   }
   return test.size === count
 }
+// 2215. Find the Difference of Two Arrays
+function findDifference(nums1: number[], nums2: number[]): number[][] {
+  let set1 = new Set(nums1)
+  let set2 = new Set(nums2)
+
+  let answer1: number[] = []
+  let answer2: number[] = []
+
+  for (let num of set1) {
+    if (!set2.has(num)) {
+      answer1.push(num)
+    }
+  }
+
+  for (let num of set2) {
+    if (!set1.has(num)) {
+      answer2.push(num)
+    }
+  }
+
+  return [answer1, answer2]
+}
