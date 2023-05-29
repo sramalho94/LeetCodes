@@ -340,3 +340,14 @@ function findDifference(nums1: number[], nums2: number[]): number[][] {
 
   return [answer1, answer2]
 }
+// 1732. Find the Highest Altitude
+function largestAltitude(gain: number[]): number {
+  let maxHeight: number = 0
+  let currentHeight: number = 0
+  for (let i: number = 0; i < gain.length; i++) {
+    currentHeight = currentHeight + gain[i]
+
+    maxHeight = Math.max(maxHeight, currentHeight)
+  }
+  return maxHeight
+}
