@@ -351,3 +351,20 @@ function largestAltitude(gain: number[]): number {
   }
   return maxHeight
 }
+// 1365. How Many Numbers Are Smaller Than the Current Number
+function smallerNumbersThanCurrent(nums: number[]): number[] {
+  let answer: number[] = []
+
+  for (let i: number = 0; i < nums.length; i++) {
+    let count = 0
+    for (let j: number = 0; j < nums.length; j++) {
+      if (i !== j && nums[j] < nums[i]) {
+        count++
+      }
+    }
+    answer.push(count)
+    count = 0
+  }
+
+  return answer
+}
