@@ -368,3 +368,31 @@ function smallerNumbersThanCurrent(nums: number[]): number[] {
 
   return answer
 }
+// 1913. Maximum Product Difference Between Two Pairs
+
+function maxProductDifference(nums: number[]): number {
+  let high: number = Number.MIN_VALUE
+  let secHigh: number = Number.MIN_VALUE
+  let low: number = Number.MAX_VALUE
+  let secLow: number = Number.MAX_VALUE
+
+  for (let i: number = 0; i < nums.length; i++) {
+    if (nums[i] > high) {
+      console.log(`new high ${nums[i]}`)
+      secHigh = high
+      high = nums[i]
+    } else if (nums[i] > secHigh) {
+      secHigh = nums[i]
+      console.log(`new secHigh ${nums[i]}`)
+    }
+
+    if (nums[i] < low) {
+      secLow = low
+      low = nums[i]
+    } else if (nums[i] < secLow) {
+      secLow = nums[i]
+    }
+  }
+
+  return high * secHigh - low * secLow
+}
