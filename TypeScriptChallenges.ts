@@ -431,3 +431,20 @@ function fizzBuzz(n: number): string[] {
   }
   return answer
 }
+
+// 771. Jewels and Stones
+function numJewelsInStones(jewels: string, stones: string): number {
+  let jewelRec = {}
+  let answer: number = 0
+  for (let i = 0; i < jewels.length; i++) {
+    if (jewelRec[jewels[i]] === undefined) {
+      jewelRec[jewels[i]] = 1
+    }
+  }
+  for (let i = 0; i < stones.length; i++) {
+    if (jewelRec[stones[i]] !== undefined) {
+      answer++
+    }
+  }
+  return answer
+}
