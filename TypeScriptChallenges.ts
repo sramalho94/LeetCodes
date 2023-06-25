@@ -457,3 +457,18 @@ function mostWordsFound(sentences: string[]): number {
   }
   return maxWordCount
 }
+// 1859. Sorting the Sentence
+function sortSentence(s: string): string {
+  let answer: string[] = []
+  let wordOrder: { [key: number]: string } = {}
+  const words = s.split(' ')
+  for (const word of words) {
+    const position = word.length - 1
+    const fixedWord = word.slice(0, position)
+    wordOrder[word[position]] = fixedWord
+  }
+  for (let i = 1; i <= words.length; i++) {
+    answer.push(wordOrder[i])
+  }
+  return answer.join(' ')
+}
