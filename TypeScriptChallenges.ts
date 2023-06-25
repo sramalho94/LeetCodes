@@ -448,3 +448,12 @@ function numJewelsInStones(jewels: string, stones: string): number {
   }
   return answer
 }
+// 2114. Maximum Number of Words Found in Sentences
+function mostWordsFound(sentences: string[]): number {
+  let maxWordCount: number = -Infinity
+  for (const sentence of sentences) {
+    const localWordCount = sentence.split(' ').length
+    maxWordCount = Math.max(maxWordCount, localWordCount)
+  }
+  return maxWordCount
+}
