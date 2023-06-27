@@ -472,3 +472,22 @@ function sortSentence(s: string): string {
   }
   return answer.join(' ')
 }
+
+// 389. Find the Difference
+function findTheDifference(s: string, t: string): string {
+  let letterRecord = {}
+  for (let i: number = 0; i < s.length; i++) {
+    if (letterRecord[s[i]] === undefined) {
+      letterRecord[s[i]] = 1
+    } else {
+      letterRecord[s[i]]++
+    }
+  }
+  for (let i: number = 0; i < t.length; i++) {
+    if (!letterRecord[t[i]]) {
+      return t[i]
+    } else {
+      letterRecord[t[i]]--
+    }
+  }
+}
