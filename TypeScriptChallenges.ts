@@ -538,3 +538,10 @@ function makeSmallestPalindrome(s: string): string {
 
   return sArr.join('')
 }
+
+// 1832. Check if the Sentence Is Pangram
+function checkIfPangram(sentence: string): boolean {
+  const charArray: string[] = sentence.split('')
+  const uniqueChars: Set<string> = new Set(charArray)
+  return uniqueChars.size >= 26
+}
