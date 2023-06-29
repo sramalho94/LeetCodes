@@ -545,3 +545,21 @@ function checkIfPangram(sentence: string): boolean {
   const uniqueChars: Set<string> = new Set(charArray)
   return uniqueChars.size >= 26
 }
+
+// 2315. Count Asterisks
+function countAsterisks(s: string): number {
+  let asteriskCount = 0
+  let barCount = 0
+
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === '|') {
+      barCount++
+    }
+
+    if (barCount % 2 === 0 && s[i] === '*') {
+      asteriskCount++
+    }
+  }
+
+  return asteriskCount
+}
