@@ -563,3 +563,33 @@ function countAsterisks(s: string): number {
 
   return asteriskCount
 }
+
+// 318. Maximum Product of Word Lengths
+function maxProduct(words: string[]): number {
+  let max = 0
+  let sets: Set<string>[] = []
+
+  //    turn each word into set and push to sets
+  for (const word of words) {
+    let charSet: Set<string> = new Set(word)
+    sets.push(charSet)
+  }
+  // outer for loop sets first element for comparison
+  for (let i = 0; i < sets.length; i++) {
+    //    compare first element against elements that come after
+    for (let j = i + 1; j < sets.length; j++) {
+      let similar = false
+
+      //    compare chars of the two elements
+      for (const char of sets[i]) {
+        if (sets[j].has(char)) {
+          similar = true
+          break
+        }
+      }
+      //    if all unique elements calculate new max, otherwise max is the same
+      !similar ? (max = Math.max(max, words[i].length * words[j].length)) : max
+    }
+  }
+  return max
+}
