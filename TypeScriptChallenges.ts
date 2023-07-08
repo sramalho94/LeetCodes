@@ -611,3 +611,26 @@ function rangeSumBST(root: TreeNode | null, low: number, high: number): number {
   }
   return sum
 }
+
+// 1038. Binary Search Tree to Greater Sum Tree
+
+function bstToGst(root: TreeNode | null): TreeNode | null {
+  let runningSum = 0
+
+  const revInOrdTrav = (root: TreeNode | null) => {
+    if (root === null) {
+      return 0
+    }
+
+    revInOrdTrav(root.right)
+
+    runningSum += root.val
+    root.val = runningSum
+
+    revInOrdTrav(root.left)
+  }
+
+  revInOrdTrav(root)
+
+  return root
+}
